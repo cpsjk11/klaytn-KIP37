@@ -1,0 +1,45 @@
+{
+	"compiler": {
+		"version": "0.8.18+commit.87f61d96"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"KIP37/utils/Address.sol": "Address"
+		},
+		"evmVersion": "paris",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"KIP37/utils/Address.sol": {
+			"keccak256": "0xb92f9c29025d188c1723fd514f1de924f19461fff55b69b8eceb1981385651a4",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://a86453ebce6128f2e071390c578b75bfd90a731222a17c8d826853b3971ed84b",
+				"dweb:/ipfs/QmPAAg37Ns1rdqFHhUfzanJcf9anjYN25ruLW5EFqWRxeJ"
+			]
+		}
+	},
+	"version": 1
+}

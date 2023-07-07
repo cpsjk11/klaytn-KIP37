@@ -1,0 +1,1184 @@
+{
+	"compiler": {
+		"version": "0.8.18+commit.87f61d96"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "symbol_",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "name_",
+						"type": "string"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "operator",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "bool",
+						"name": "approved",
+						"type": "bool"
+					}
+				],
+				"name": "ApprovalForAll",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "Paused",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "bytes32",
+						"name": "role",
+						"type": "bytes32"
+					},
+					{
+						"indexed": true,
+						"internalType": "bytes32",
+						"name": "previousAdminRole",
+						"type": "bytes32"
+					},
+					{
+						"indexed": true,
+						"internalType": "bytes32",
+						"name": "newAdminRole",
+						"type": "bytes32"
+					}
+				],
+				"name": "RoleAdminChanged",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "bytes32",
+						"name": "role",
+						"type": "bytes32"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					}
+				],
+				"name": "RoleGranted",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "bytes32",
+						"name": "role",
+						"type": "bytes32"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					}
+				],
+				"name": "RoleRevoked",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					}
+				],
+				"name": "TokenPaused",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					}
+				],
+				"name": "TokenUnpaused",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "operator",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "from",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256[]",
+						"name": "ids",
+						"type": "uint256[]"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256[]",
+						"name": "amounts",
+						"type": "uint256[]"
+					}
+				],
+				"name": "TransferBatch",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "operator",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "from",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "TransferSingle",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "value",
+						"type": "string"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					}
+				],
+				"name": "URI",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "Unpaused",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "DEFAULT_ADMIN_ROLE",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "PAUSER_ROLE",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					}
+				],
+				"name": "balanceOf",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address[]",
+						"name": "owners",
+						"type": "address[]"
+					},
+					{
+						"internalType": "uint256[]",
+						"name": "ids",
+						"type": "uint256[]"
+					}
+				],
+				"name": "balanceOfBatch",
+				"outputs": [
+					{
+						"internalType": "uint256[]",
+						"name": "",
+						"type": "uint256[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "burn",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256[]",
+						"name": "ids",
+						"type": "uint256[]"
+					},
+					{
+						"internalType": "uint256[]",
+						"name": "amounts",
+						"type": "uint256[]"
+					}
+				],
+				"name": "burnBatch",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_addr",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256[]",
+						"name": "tokenIds",
+						"type": "uint256[]"
+					}
+				],
+				"name": "getAllLockedTokensByAddress",
+				"outputs": [
+					{
+						"internalType": "uint256[]",
+						"name": "",
+						"type": "uint256[]"
+					},
+					{
+						"internalType": "uint256[]",
+						"name": "",
+						"type": "uint256[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "role",
+						"type": "bytes32"
+					}
+				],
+				"name": "getRoleAdmin",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "role",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "uint256",
+						"name": "index",
+						"type": "uint256"
+					}
+				],
+				"name": "getRoleMember",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "role",
+						"type": "bytes32"
+					}
+				],
+				"name": "getRoleMemberCount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "role",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "grantRole",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "role",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "hasRole",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "operator",
+						"type": "address"
+					}
+				],
+				"name": "isApprovedForAll",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					}
+				],
+				"name": "isTokenLocked",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "lockedTokens",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "name",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					}
+				],
+				"name": "pause",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "pause",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					}
+				],
+				"name": "paused",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "paused",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "role",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "renounceRole",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "role",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "revokeRole",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "from",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256[]",
+						"name": "ids",
+						"type": "uint256[]"
+					},
+					{
+						"internalType": "uint256[]",
+						"name": "amounts",
+						"type": "uint256[]"
+					},
+					{
+						"internalType": "bytes",
+						"name": "data",
+						"type": "bytes"
+					}
+				],
+				"name": "safeBatchTransferFrom",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "from",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes",
+						"name": "data",
+						"type": "bytes"
+					}
+				],
+				"name": "safeTransferFrom",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "operator",
+						"type": "address"
+					},
+					{
+						"internalType": "bool",
+						"name": "approved",
+						"type": "bool"
+					}
+				],
+				"name": "setApprovalForAll",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes4",
+						"name": "interfaceId",
+						"type": "bytes4"
+					}
+				],
+				"name": "supportsInterface",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "symbol",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					}
+				],
+				"name": "totalSupply",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "unpause",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					}
+				],
+				"name": "unpause",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					}
+				],
+				"name": "uri",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"events": {
+				"RoleAdminChanged(bytes32,bytes32,bytes32)": {
+					"details": "Emitted when `newAdminRole` is set as ``role``'s admin role, replacing `previousAdminRole` `DEFAULT_ADMIN_ROLE` is the starting admin for all roles, despite {RoleAdminChanged} not being emitted signaling this. _Available since v3.1._"
+				},
+				"RoleGranted(bytes32,address,address)": {
+					"details": "Emitted when `account` is granted `role`. `sender` is the account that originated the contract call, an admin role bearer except when using {AccessControl-_setupRole}."
+				},
+				"RoleRevoked(bytes32,address,address)": {
+					"details": "Emitted when `account` is revoked `role`. `sender` is the account that originated the contract call:   - if using `revokeRole`, it is the admin role bearer   - if using `renounceRole`, it is the role bearer (i.e. `account`)"
+				}
+			},
+			"kind": "dev",
+			"methods": {
+				"getRoleAdmin(bytes32)": {
+					"details": "Returns the admin role that controls `role`. See {grantRole} and {revokeRole}. To change a role's admin, use {_setRoleAdmin}."
+				},
+				"getRoleMember(bytes32,uint256)": {
+					"details": "Returns one of the accounts that have `role`. `index` must be a value between 0 and {getRoleMemberCount}, non-inclusive. Role bearers are not sorted in any particular way, and their ordering may change at any point. WARNING: When using {getRoleMember} and {getRoleMemberCount}, make sure you perform all queries on the same block. See the following https://forum.openzeppelin.com/t/iterating-over-elements-on-enumerableset-in-openzeppelin-contracts/2296[forum post] for more information."
+				},
+				"getRoleMemberCount(bytes32)": {
+					"details": "Returns the number of accounts that have `role`. Can be used together with {getRoleMember} to enumerate all bearers of a role."
+				},
+				"grantRole(bytes32,address)": {
+					"details": "Grants `role` to `account`. If `account` had not been already granted `role`, emits a {RoleGranted} event. Requirements: - the caller must have ``role``'s admin role. May emit a {RoleGranted} event."
+				},
+				"hasRole(bytes32,address)": {
+					"details": "Returns `true` if `account` has been granted `role`."
+				},
+				"renounceRole(bytes32,address)": {
+					"details": "Revokes `role` from the calling account. Roles are often managed via {grantRole} and {revokeRole}: this function's purpose is to provide a mechanism for accounts to lose their privileges if they are compromised (such as when a trusted device is misplaced). If the calling account had been revoked `role`, emits a {RoleRevoked} event. Requirements: - the caller must be `account`. May emit a {RoleRevoked} event."
+				},
+				"revokeRole(bytes32,address)": {
+					"details": "Revokes `role` from `account`. If `account` had been granted `role`, emits a {RoleRevoked} event. Requirements: - the caller must have ``role``'s admin role. May emit a {RoleRevoked} event."
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"KIP37/presets/KIP37PresetMinterPauser.sol": "KIP37PresetMinterPauser"
+		},
+		"evmVersion": "paris",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"KIP17/introspection/IKIP13.sol": {
+			"keccak256": "0xe4656aae545f5dc9b735d560b1da29eb1fca62ec9eaea59c7152effccd443ec6",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://40c6d87c1b4d628fc3bddcfaafb1331fcfc7685ab04d91b00445c06ea3ad03ff",
+				"dweb:/ipfs/QmWQahrb75tqMNFTTA95nYUp3riz14feejwTMKnyQefSd4"
+			]
+		},
+		"KIP17/introspection/KIP13.sol": {
+			"keccak256": "0x521592a6991a73a739718fb87f12b8302e23c19403318e956ceeb8455a22fc3c",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://732ad923fdac2fac646d229f51dde2fdce3fce718322d1f5d1617eb21e39fcb6",
+				"dweb:/ipfs/QmSVicqStCg2297kmfjcC9abTtgeucyNcCHKdQ2SnoDzXQ"
+			]
+		},
+		"KIP17/introspection/interface/IKIP13.sol": {
+			"keccak256": "0x70e9c008e6a50dbb7feb63edf6468e75206d1c4bf9754cbe356042dd67acf2dd",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://13a8ccd078df4f3455f42bab514fc4b2bc885fa8c4e0c6e8b4a6adfa1a44c193",
+				"dweb:/ipfs/QmZg7ei65SdXf8MXXithssHuBCoietPP3ve2oEw6TZADin"
+			]
+		},
+		"KIP37/IKIP37.sol": {
+			"keccak256": "0xfc07b9cb12f0e392016471a5d484cbb90b40ec39f93d627dc5daa7c835e492af",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://4ebd9646e10ab6e6a10ee733b9e9883da4ff5259c3731a3e952ca7806ac3c739",
+				"dweb:/ipfs/QmYt74RzwF3HtaG9PY5WtoZ5auMUNgvTFDFJqwre337hAy"
+			]
+		},
+		"KIP37/IKIP37Receiver.sol": {
+			"keccak256": "0x7a665303fe7fb5482f6d4203f78b97573393bc09392257a3c51b55ef82bfb92f",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://77c271d8463f3f6cdfb6beddabd53cf7860e32aee41398e2ee958bfde29d8ed6",
+				"dweb:/ipfs/QmPzWBie8ArNoESBv6UiJMM6zNrNHcEzebv4uaPf45KJ75"
+			]
+		},
+		"KIP37/KIP37.sol": {
+			"keccak256": "0x800e9ee45cc7749d6cc3cad39fd8b2c3988dc92a6f3ea11eb1a2408604d664f7",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://7effdcb530bf23e9f4b7080553d0263e51c44f40b877ade6228ee704bcce993e",
+				"dweb:/ipfs/QmTCY63mctwiNTM9n4tHNBnKTXaYR25K5dEVVzQzHEqELY"
+			]
+		},
+		"KIP37/MinterRole.sol": {
+			"keccak256": "0xec6c8b6c5315a4c3745b5ef3da4a24947cb7d000186b76b2d9492f8d5dcf8ecb",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://89959432ca76c062fc7f452ffc794563556891cedd995a1474eca4cf65f441ac",
+				"dweb:/ipfs/QmRVjfsP1qJv1uK4UsrHunJxgjHxa5rDZ5WnhsFwdCuxS5"
+			]
+		},
+		"KIP37/Roles.sol": {
+			"keccak256": "0x2d19e4d6d6a651cad76c078c9ff776eb8c64296b421f6b86e65a89935778dd5b",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://b86dcca322eb178848ef71304937c5213472c2d43dce99d8c533d9ec5f1f7e1f",
+				"dweb:/ipfs/QmaumnXzvkHkTrosAyB7CFhXCa2Qq3brbJrGvquHX5GHRZ"
+			]
+		},
+		"KIP37/SafeMath.sol": {
+			"keccak256": "0xf430a8b307822e56e8c72ec134e9bf0f086d841e59fcceae7b350a571d4ea1b1",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://46cff5148b09f63a0c74422b93f920b99877682fc4895af3230b798aa780c4d3",
+				"dweb:/ipfs/QmbbgpZQSXpBbWh9sNiuFisw43YBCNHmqLdeZiKMhviusR"
+			]
+		},
+		"KIP37/access/AccessControl.sol": {
+			"keccak256": "0x4742296256e0d92dd049ea77151ceedcffb6c8f21174a0e818f5dcb55dab123b",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://d160627f5fae787236a5e18ea6d3fbc92a0f9c468d287c24f3d2605e229a3c96",
+				"dweb:/ipfs/QmdQXU9hCRYf42rufjbw7EM1XxCrkDgD1NwMmoRpyYxc4Q"
+			]
+		},
+		"KIP37/access/AccessControlEnumerable.sol": {
+			"keccak256": "0x730b55de381f2b96c33d26703a84d652d8313a3e712a6f9c89cd8136659da36f",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://dc498882bdce12fa147b6356f700136428669d98c46f76c7faac9a7162dd1c39",
+				"dweb:/ipfs/QmRpSAa3skEmayZDpJNrNzab6vLg68vkA6HNQYjHw5fNq7"
+			]
+		},
+		"KIP37/access/ERC165.sol": {
+			"keccak256": "0xd10975de010d89fd1c78dc5e8a9a7e7f496198085c151648f20cba166b32582b",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://fb0048dee081f6fffa5f74afc3fb328483c2a30504e94a0ddd2a5114d731ec4d",
+				"dweb:/ipfs/QmZptt1nmYoA5SgjwnSgWqgUSDgm4q52Yos3xhnMv3MV43"
+			]
+		},
+		"KIP37/access/IAccessControl.sol": {
+			"keccak256": "0x59ce320a585d7e1f163cd70390a0ef2ff9cec832e2aa544293a00692465a7a57",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://bb2c137c343ef0c4c7ce7b18c1d108afdc9d315a04e48307288d2d05adcbde3a",
+				"dweb:/ipfs/QmUxhrAQM3MM3FF5j7AtcXLXguWCJBHJ14BRdVtuoQc8Fh"
+			]
+		},
+		"KIP37/access/IAccessControlEnumerable.sol": {
+			"keccak256": "0xba4459ab871dfa300f5212c6c30178b63898c03533a1ede28436f11546626676",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://3dcc7b09bfa6e18aab262ca372f4a9b1fc82e294b430706a4e1378cf58e6a276",
+				"dweb:/ipfs/QmT8oSAcesdctR15HMLhr2a1HRpXymxdjTfdtfTYJcj2N2"
+			]
+		},
+		"KIP37/access/IERC165.sol": {
+			"keccak256": "0x447a5f3ddc18419d41ff92b3773fb86471b1db25773e07f877f548918a185bf1",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://be161e54f24e5c6fae81a12db1a8ae87bc5ae1b0ddc805d82a1440a68455088f",
+				"dweb:/ipfs/QmP7C3CHdY9urF4dEMb9wmsp1wMxHF6nhA2yQE5SKiPAdy"
+			]
+		},
+		"KIP37/extensions/IKIP37Burnable.sol": {
+			"keccak256": "0x59b15b3564630f5942b8b3d63491596cf866d01722b486dd25ec7365ff0be6f0",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://647e656cd242831b9dacba05373a1af93e6423029553b76cd4d70d1a3d910daf",
+				"dweb:/ipfs/QmfYJ2hYsM83Tz6WqnNfpWfYZgwQ4PrahZWAiNJik5w6T9"
+			]
+		},
+		"KIP37/extensions/IKIP37MetadataURI.sol": {
+			"keccak256": "0x2df09d302d1c7c8017835fd1c4bca99363ac8d5f9d80e14286d7b34a2c3839dc",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://f63c9af046ffe494005a4a7b7432d1eced0e096f7369a8734c83f25309c9f842",
+				"dweb:/ipfs/QmPDUp7fKeeCdHZEjan51YxhBySFSw4Nxa9qqURBGeWPav"
+			]
+		},
+		"KIP37/extensions/IKIP37Mintable.sol": {
+			"keccak256": "0x7de4e5418d500dc9295d2da92a4c2ff6c82e32d6daea0f4fb8c5adec104c0026",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://64a4d80b4deb3ce1530503d70be833b52a1369795b3d895bdbdfc01c49dd7311",
+				"dweb:/ipfs/QmazC73fW7pT3YC1q4BBuA4ZCq9pvQ1qhSEQ2G3pGHH4qi"
+			]
+		},
+		"KIP37/extensions/IKIP37Pausable.sol": {
+			"keccak256": "0xfe9df8cebfd00bc73dba979fdb74df2436486fe3272ef88f714e6573d2cd146d",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://dac0a9046988251946a9f4611809b81894518e727986acfeea714a29f0c117d1",
+				"dweb:/ipfs/QmX3K2Kt1V4Q6hgxWbevUYxJZVPZ7zmKedtkTknq7kfdQT"
+			]
+		},
+		"KIP37/extensions/KIP37Burnable.sol": {
+			"keccak256": "0x07d6fd91211a915ffa6dc6db0e0410ca749b42f4e0869e073e1e5c5abd78db6d",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://8b65bbc96563bd8967daf3ce562982f983ac5b3f8d37d62bc32620df20df8c19",
+				"dweb:/ipfs/QmTpegQUebRq4fwgXS9javn3aDNS5uE7nCke94qvys9uBo"
+			]
+		},
+		"KIP37/extensions/KIP37Mintable.sol": {
+			"keccak256": "0x5f713e5e426e88e99b9e9c361055b7bbe792ab3a352dafe84811534957b4e405",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://68c7fd60c5e2658578f37d342ceb375f0933950c5e8c478a7ab9c7eb1abf7c4d",
+				"dweb:/ipfs/Qma2pQrZXHzn3rwAS8K4B5KwhpVvSs5ek2Fg1Tc7S6kMxj"
+			]
+		},
+		"KIP37/extensions/KIP37Pausable.sol": {
+			"keccak256": "0x4c6f3a96c70bf575190d78b90902b2229280c733b19d90e76c47452502fd84b1",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://2eba919ddcaf2c123d10559ef864ce82368879e670ddd2b842b523b88dd1fcfb",
+				"dweb:/ipfs/QmTPrA4xQaqZmsUdwnouLKYXuQkPaguamj78FeRouETvKi"
+			]
+		},
+		"KIP37/extensions/KIP37URIStorage.sol": {
+			"keccak256": "0xb3057326f9a903a823eb10b17100b4bd5c488e20a1526ef1765db9758c6c3127",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://fb4bfb813bf6cd7b7c52c97925e13924f8ce0d36f1ff18779072f0cd6cd47f43",
+				"dweb:/ipfs/QmQQRLNxPMJxUx2CNBF9MEPXuwD7Wpb7Zy4GZzfz7MYt35"
+			]
+		},
+		"KIP37/extensions/Pausable.sol": {
+			"keccak256": "0x6f796ec5b15d4e6173777bd1d91dc61a7715405a9427c54c02531edf087bc05e",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://58014fc05f441202f671add7fdb376b0aaeb0e4aefac5ec7155f9819e6d66b04",
+				"dweb:/ipfs/QmSJ1D8HYznuKXYWMG9kMyAf76V46RUPKSLrSrK2RZ6Jx8"
+			]
+		},
+		"KIP37/presets/KIP37PresetMinterPauser.sol": {
+			"keccak256": "0x80a999aaeef7dd0354a14726f9596844bf0cfddfdb7aeabdf0df2d0521a69273",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://0a9d435471abe531701429ec94a86d875717c42f4272fe2e9970f04ac8b65d56",
+				"dweb:/ipfs/QmQspGHJXdyPzrndX3VoGxfbMAJ1yACSj8D5PSFPhmuysZ"
+			]
+		},
+		"KIP37/structs/EnumerableSet.sol": {
+			"keccak256": "0xda3070db8e43411ff59818d31f54f8aa3538d539c6f264b20f464e227480229e",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://d857429d82e236f75e9c3a3f4f96449f93b31bd24316f27f266e9736fbbda0fe",
+				"dweb:/ipfs/QmVMkEf7UJfV29maEa1KNqwq3LQ2VMCkLhimToXVkGRwUn"
+			]
+		},
+		"KIP37/utils/Address.sol": {
+			"keccak256": "0xb92f9c29025d188c1723fd514f1de924f19461fff55b69b8eceb1981385651a4",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://a86453ebce6128f2e071390c578b75bfd90a731222a17c8d826853b3971ed84b",
+				"dweb:/ipfs/QmPAAg37Ns1rdqFHhUfzanJcf9anjYN25ruLW5EFqWRxeJ"
+			]
+		},
+		"KIP37/utils/Context.sol": {
+			"keccak256": "0x0e7fc46a788f111227368fb1b9e99f70d576f06ce6a320788e3e66a6f64df385",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://8600772385b8d0c1d5afb56696077170d5d8cc171caa4cf4cda656ef8595edf3",
+				"dweb:/ipfs/QmVcDmYAt3RA5F1aEpmoq1pUQJAcqMJ6NTX2G8a2KSGYUt"
+			]
+		},
+		"KIP37/utils/IERC1155Receiver.sol": {
+			"keccak256": "0x970455c559409a785aa96668618b21a11918bb4337c584be4215e58a32e3d81c",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://488942d87baf33a0c86d37fbc47f33e229191016635cdd4bf408bc5ff0160fd9",
+				"dweb:/ipfs/QmPaHtKr4RvSG84yog2MB55ELh17adi6oQMCWkRLo5KJX6"
+			]
+		},
+		"KIP37/utils/Strings.sol": {
+			"keccak256": "0xb336296c0f951cb6ac7fc8c2f9ec6aab871d19f17c5f633ec16192006f524739",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://942d0af1bc29d83705917094b56272b3c7eb4965c75617398a22ba2247e8ee19",
+				"dweb:/ipfs/QmTSqEFMac9UR4ai66bv9Mic9MQ6pk7odzF5wUFtFdCAGj"
+			]
+		}
+	},
+	"version": 1
+}

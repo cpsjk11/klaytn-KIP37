@@ -1,0 +1,151 @@
+{
+	"compiler": {
+		"version": "0.8.17+commit.8df45f5f"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "operator",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "from",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256[]",
+						"name": "ids",
+						"type": "uint256[]"
+					},
+					{
+						"internalType": "uint256[]",
+						"name": "amounts",
+						"type": "uint256[]"
+					},
+					{
+						"internalType": "bytes",
+						"name": "data",
+						"type": "bytes"
+					}
+				],
+				"name": "onKIP37BatchReceived",
+				"outputs": [
+					{
+						"internalType": "bytes4",
+						"name": "",
+						"type": "bytes4"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "operator",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "from",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes",
+						"name": "data",
+						"type": "bytes"
+					}
+				],
+				"name": "onKIP37Received",
+				"outputs": [
+					{
+						"internalType": "bytes4",
+						"name": "",
+						"type": "bytes4"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes4",
+						"name": "interfaceId",
+						"type": "bytes4"
+					}
+				],
+				"name": "supportsInterface",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"KIP37/IKIP37Receiver.sol": "IKIP37Receiver"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"KIP17/introspection/IKIP13.sol": {
+			"keccak256": "0xe4656aae545f5dc9b735d560b1da29eb1fca62ec9eaea59c7152effccd443ec6",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://40c6d87c1b4d628fc3bddcfaafb1331fcfc7685ab04d91b00445c06ea3ad03ff",
+				"dweb:/ipfs/QmWQahrb75tqMNFTTA95nYUp3riz14feejwTMKnyQefSd4"
+			]
+		},
+		"KIP37/IKIP37Receiver.sol": {
+			"keccak256": "0x7a665303fe7fb5482f6d4203f78b97573393bc09392257a3c51b55ef82bfb92f",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://77c271d8463f3f6cdfb6beddabd53cf7860e32aee41398e2ee958bfde29d8ed6",
+				"dweb:/ipfs/QmPzWBie8ArNoESBv6UiJMM6zNrNHcEzebv4uaPf45KJ75"
+			]
+		}
+	},
+	"version": 1
+}

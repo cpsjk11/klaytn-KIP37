@@ -1,0 +1,180 @@
+{
+	"compiler": {
+		"version": "0.8.18+commit.87f61d96"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "Paused",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "PauserAdded",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "PauserRemoved",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "Unpaused",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "addPauser",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "isPauser",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "pause",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "paused",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "renouncePauser",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "unpause",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"KIP37/Pausable.sol": "Pausable"
+		},
+		"evmVersion": "paris",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"KIP37/Pausable.sol": {
+			"keccak256": "0x8d1786f4f8fe572b10177ff4c59c45a5d127f76df56f95dc3288b8789a567b86",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://06fb640c6dd704526d73cd8d90d8a789bf1fa9399b78c557516cb83005f878d5",
+				"dweb:/ipfs/QmcxJyo7x9rDEs7e3Le7GJ5tWzd17eiKGXhUrNEHfkJV8J"
+			]
+		},
+		"KIP37/PauserRole.sol": {
+			"keccak256": "0xd56048fac38b732ac1b98b0a07dd351a8e6145635556cbed77ab7195f30697aa",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://c412dd5d31306651d7cbdb57b5596b8e25f2281d3696ac103a416f49570327e9",
+				"dweb:/ipfs/QmNWBsKCmQq7WyrCxeKoDBQk7yjkMDb6iLBxvS1cN9m1fb"
+			]
+		},
+		"KIP37/Roles.sol": {
+			"keccak256": "0x2d19e4d6d6a651cad76c078c9ff776eb8c64296b421f6b86e65a89935778dd5b",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://b86dcca322eb178848ef71304937c5213472c2d43dce99d8c533d9ec5f1f7e1f",
+				"dweb:/ipfs/QmaumnXzvkHkTrosAyB7CFhXCa2Qq3brbJrGvquHX5GHRZ"
+			]
+		}
+	},
+	"version": 1
+}

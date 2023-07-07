@@ -1,0 +1,160 @@
+{
+	"id": "2508af3570e5f734c652e4294ff84273",
+	"_format": "hh-sol-build-info-1",
+	"solcVersion": "0.8.18",
+	"solcLongVersion": "0.8.18+commit.87f61d96",
+	"input": {
+		"language": "Solidity",
+		"sources": {
+			"KIP37/access/errors.sol": {
+				"content": "// SPDX-License-Identifier: MIT\n// OpenZeppelin Contracts (last updated v4.6.0) (crosschain/errors.sol)\n\npragma solidity ^0.8.4;\n\nerror NotCrossChainCall();\nerror InvalidCrossChainSender(address actual, address expected);\n"
+			}
+		},
+		"settings": {
+			"optimizer": {
+				"enabled": true,
+				"runs": 200
+			},
+			"outputSelection": {
+				"*": {
+					"": [
+						"ast"
+					],
+					"*": [
+						"abi",
+						"metadata",
+						"devdoc",
+						"userdoc",
+						"storageLayout",
+						"evm.legacyAssembly",
+						"evm.bytecode",
+						"evm.deployedBytecode",
+						"evm.methodIdentifiers",
+						"evm.gasEstimates",
+						"evm.assembly"
+					]
+				}
+			}
+		}
+	},
+	"output": {
+		"sources": {
+			"KIP37/access/errors.sol": {
+				"ast": {
+					"absolutePath": "KIP37/access/errors.sol",
+					"exportedSymbols": {
+						"InvalidCrossChainSender": [
+							9
+						],
+						"NotCrossChainCall": [
+							3
+						]
+					},
+					"id": 10,
+					"license": "MIT",
+					"nodeType": "SourceUnit",
+					"nodes": [
+						{
+							"id": 1,
+							"literals": [
+								"solidity",
+								"^",
+								"0.8",
+								".4"
+							],
+							"nodeType": "PragmaDirective",
+							"src": "105:23:0"
+						},
+						{
+							"errorSelector": "4a74df92",
+							"id": 3,
+							"name": "NotCrossChainCall",
+							"nameLocation": "136:17:0",
+							"nodeType": "ErrorDefinition",
+							"parameters": {
+								"id": 2,
+								"nodeType": "ParameterList",
+								"parameters": [],
+								"src": "153:2:0"
+							},
+							"src": "130:26:0"
+						},
+						{
+							"errorSelector": "ef25d32b",
+							"id": 9,
+							"name": "InvalidCrossChainSender",
+							"nameLocation": "163:23:0",
+							"nodeType": "ErrorDefinition",
+							"parameters": {
+								"id": 8,
+								"nodeType": "ParameterList",
+								"parameters": [
+									{
+										"constant": false,
+										"id": 5,
+										"mutability": "mutable",
+										"name": "actual",
+										"nameLocation": "195:6:0",
+										"nodeType": "VariableDeclaration",
+										"scope": 9,
+										"src": "187:14:0",
+										"stateVariable": false,
+										"storageLocation": "default",
+										"typeDescriptions": {
+											"typeIdentifier": "t_address",
+											"typeString": "address"
+										},
+										"typeName": {
+											"id": 4,
+											"name": "address",
+											"nodeType": "ElementaryTypeName",
+											"src": "187:7:0",
+											"stateMutability": "nonpayable",
+											"typeDescriptions": {
+												"typeIdentifier": "t_address",
+												"typeString": "address"
+											}
+										},
+										"visibility": "internal"
+									},
+									{
+										"constant": false,
+										"id": 7,
+										"mutability": "mutable",
+										"name": "expected",
+										"nameLocation": "211:8:0",
+										"nodeType": "VariableDeclaration",
+										"scope": 9,
+										"src": "203:16:0",
+										"stateVariable": false,
+										"storageLocation": "default",
+										"typeDescriptions": {
+											"typeIdentifier": "t_address",
+											"typeString": "address"
+										},
+										"typeName": {
+											"id": 6,
+											"name": "address",
+											"nodeType": "ElementaryTypeName",
+											"src": "203:7:0",
+											"stateMutability": "nonpayable",
+											"typeDescriptions": {
+												"typeIdentifier": "t_address",
+												"typeString": "address"
+											}
+										},
+										"visibility": "internal"
+									}
+								],
+								"src": "186:34:0"
+							},
+							"src": "157:64:0"
+						}
+					],
+					"src": "105:117:0"
+				},
+				"id": 0
+			}
+		}
+	}
+}

@@ -1,0 +1,130 @@
+{
+	"compiler": {
+		"version": "0.8.19+commit.7dd6d404"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "MinterAdded",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "MinterRemoved",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "addMinter",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "isMinter",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "renounceMinter",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"KIP37/MinterRole.sol": "MinterRole"
+		},
+		"evmVersion": "paris",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"KIP37/MinterRole.sol": {
+			"keccak256": "0xec6c8b6c5315a4c3745b5ef3da4a24947cb7d000186b76b2d9492f8d5dcf8ecb",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://89959432ca76c062fc7f452ffc794563556891cedd995a1474eca4cf65f441ac",
+				"dweb:/ipfs/QmRVjfsP1qJv1uK4UsrHunJxgjHxa5rDZ5WnhsFwdCuxS5"
+			]
+		},
+		"KIP37/Roles.sol": {
+			"keccak256": "0x2d19e4d6d6a651cad76c078c9ff776eb8c64296b421f6b86e65a89935778dd5b",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://b86dcca322eb178848ef71304937c5213472c2d43dce99d8c533d9ec5f1f7e1f",
+				"dweb:/ipfs/QmaumnXzvkHkTrosAyB7CFhXCa2Qq3brbJrGvquHX5GHRZ"
+			]
+		}
+	},
+	"version": 1
+}

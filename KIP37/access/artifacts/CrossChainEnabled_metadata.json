@@ -1,0 +1,53 @@
+{
+	"compiler": {
+		"version": "0.8.18+commit.87f61d96"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"KIP37/access/CrossChainEnabled.sol": "CrossChainEnabled"
+		},
+		"evmVersion": "paris",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"KIP37/access/CrossChainEnabled.sol": {
+			"keccak256": "0x869b3ef716057bf8af17e6da1120b673b4b60348c72852f11afe7eff187022fa",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://155c42b4f30ebcb908077ef24874bba04b8584b85569e0a1a1cf84b385c38d5d",
+				"dweb:/ipfs/QmNriA6vu8A1o2JDNdzi8mK7ykTQtM4SL9NcTajEK6jcwP"
+			]
+		},
+		"KIP37/access/errors.sol": {
+			"keccak256": "0xa1e9b651a2427925598b49ef35da5930abc07859cfac5b9dfb1912f063a024b3",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://c514518c36a3fb1c5f1a99d88857e93160c72ea1fd728c443406ad1acb43ae9a",
+				"dweb:/ipfs/Qmc3oXjBNhdeM5cfWpsvewXZAhH34Scgna2W3MvLaiiapQ"
+			]
+		}
+	},
+	"version": 1
+}
