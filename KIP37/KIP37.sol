@@ -21,9 +21,7 @@ contract KIP37 is Context, KIP13, IKIP37, IKIP37MetadataURI {
 
     mapping(address => mapping(address => bool)) private _operatorApprovals;
 
-    mapping(address => mapping(uint256 => uint256)) private _lockedTokens;
-
-    mapping(address => mapping(uint256 => uint256)) private _processLock;
+    mapping(uint256 => bool) private _processLock;
 
     string private _uri;
 
@@ -48,12 +46,8 @@ contract KIP37 is Context, KIP13, IKIP37, IKIP37MetadataURI {
         return _balances[id][owner];
     }
 
-    function isTokenLocked(uint256 tokenId, address owner) public view returns (uint256) {
-        return _lockedTokens[owner][tokenId];
-    }
-
-    function isProcessLocked(uint256 tokenId, address owner) public view returns (uint256) {
-        return _processLock[owner][tokenId];
+    function isProcessLocked(uint256 tokenId) public view returns (bool) {
+        return _processLock[tokenId];
     }
 
 
@@ -75,94 +69,21 @@ contract KIP37 is Context, KIP13, IKIP37, IKIP37MetadataURI {
         return batchBalances;
     }
 
-    function getAllLockedTokensByAddress(address _addr, uint256[] memory tokenIds) public view virtual returns (uint256[] memory, uint256[] memory) {
-        uint256[] memory indices;
-        uint256[] memory values;
-
-        for (uint256 i = 0; i < tokenIds.length - 1; i++) {
-            uint256 value = _lockedTokens[_addr][tokenIds[i]];
-            if (value > 0) {
-                indices = appendUint256ToArray(indices, tokenIds[i]);
-                values = appendUint256ToArray(values, value);
-            }
-        }
-
-        return (indices, values);
-    }
-
-    function getAllProcerssLockedByAddress(address _addr, uint256[] memory tokenIds) public view virtual returns (uint256[] memory, uint256[] memory) {
-        uint256[] memory indices;
-        uint256[] memory values;
-
-        for (uint256 i = 0; i < tokenIds.length - 1; i++) {
-            uint256 value = _processLock[_addr][tokenIds[i]];
-            if (value > 0) {
-                indices = appendUint256ToArray(indices, tokenIds[i]);
-                values = appendUint256ToArray(values, value);
-            }
-        }
-
-        return (indices, values);
-    }
-
-    function appendUint256ToArray(uint256[] memory array, uint256 element) internal pure returns (uint256[] memory) {
-        uint256[] memory newArray = new uint256[](array.length + 1);
-        for (uint256 i = 0; i < array.length; i++) {
-            newArray[i] = array[i];
-        }
-        newArray[array.length] = element;
-        return newArray;
-    }
-
-    function _processLockTokens(address owner, uint256[] calldata tokenIds, uint256[] calldata amounts) internal virtual {
-        require(tokenIds.length == amounts.length, "Invalid input lengths");
+    function _processLockTokens(uint256[] calldata tokenIds) internal virtual {
         for (uint256 i = 0; i < tokenIds.length; i++) {
             require(tokenIds[i] != 0, "Invalid token ID");
-            require(_balances[tokenIds[i]][owner] > 0, "Token already locked");
-            uint256 balance = _balances[tokenIds[i]][owner];
-            uint256 lockToken = _processLock[owner][tokenIds[i]] + amounts[i] + _lockedTokens[owner][tokenIds[i]];
-            require(balance >= lockToken, "The maximum number has been exceeded.");
-            uint256 lockTokenAdd = _processLock[owner][tokenIds[i]] + amounts[i];
+            require(_totalSupply[tokenIds[i]] > 0, "The NFT has not been minted yet.");
 
-            _processLock[owner][tokenIds[i]] = lockTokenAdd;
+            _processLock[tokenIds[i]] = true;
         }
     }
 
-    function _processUnLockTokens(address owner, uint256[] calldata tokenIds, uint256[] calldata amounts) internal virtual {
-        require(tokenIds.length == amounts.length, "Invalid input lengths");
+    function _processUnLockTokens(uint256[] calldata tokenIds) internal virtual {
         for (uint256 i = 0; i < tokenIds.length; i++) {
             require(tokenIds[i] != 0, "Invalid token ID");
-            require(_processLock[owner][tokenIds[i]] != 0, "Token already locked");
-            uint256 unLockToken = _processLock[owner][tokenIds[i]] - amounts[i];
-            require(unLockToken >= 0, "Invalid unlock amount");
+            require(_processLock[tokenIds[i]], "Token already locked");
 
-            _processLock[owner][tokenIds[i]] = unLockToken;
-        }
-    }
-
-    function _lockTokens(address owner, uint256[] calldata tokenIds, uint256[] calldata amounts) internal virtual {
-        require(tokenIds.length == amounts.length, "Invalid input lengths");
-        for (uint256 i = 0; i < tokenIds.length; i++) {
-            require(tokenIds[i] != 0, "Invalid token ID");
-            require(_balances[tokenIds[i]][owner] > 0, "Token already locked");
-            uint256 balance = _balances[tokenIds[i]][owner];
-            uint256 lockToken = _lockedTokens[owner][tokenIds[i]] + amounts[i] + _processLock[owner][tokenIds[i]];
-            require(balance >= lockToken, "The maximum number has been exceeded.");
-            uint256 lockTokenAdd = _lockedTokens[owner][tokenIds[i]] + amounts[i];
-
-            _lockedTokens[owner][tokenIds[i]] = lockTokenAdd;
-        }
-    }
-
-    function _unLockTokens(address owner, uint256[] calldata tokenIds, uint256[] calldata amounts) internal virtual {
-        require(tokenIds.length == amounts.length, "Invalid input lengths");
-        for (uint256 i = 0; i < tokenIds.length; i++) {
-            require(tokenIds[i] != 0, "Invalid token ID");
-            require(_lockedTokens[owner][tokenIds[i]] != 0, "Token already locked");
-            uint256 unLockToken = _lockedTokens[owner][tokenIds[i]] - amounts[i];
-            require(unLockToken >= 0, "Invalid unlock amount");
-
-            _lockedTokens[owner][tokenIds[i]] = unLockToken;
+            _processLock[tokenIds[i]] = false;
         }
     }
 
@@ -388,10 +309,8 @@ contract KIP37 is Context, KIP13, IKIP37, IKIP37MetadataURI {
         bytes memory /** data */
     ) internal virtual {
         for (uint256 i = 0; i < ids.length; ++i) {
-            uint256 balance = _balances[ids[i]][from] - (_lockedTokens[from][ids[i]] + _processLock[from][ids[i]]);
-
-            if (from != address(0) && balance < amounts[i] ) {
-                revert("Token is locked");
+            if (from != address(0) && _processLock[ids[i]] ) {
+                revert("The corresponding NFT is currently in a locked state.");
             }
         }
 

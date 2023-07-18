@@ -93,20 +93,12 @@ abstract contract KIP37Mintable is KIP37, KIP37URIStorage, IKIP37Mintable, Minte
         KIP37URIStorage._setBaseURI(baseURI);
     }
 
-    function _processLockTokens(address owner, uint256[] calldata tokenIds, uint256[] calldata amounts) internal override(KIP37) virtual onlyMinter {
-        KIP37._processLockTokens(owner, tokenIds, amounts);
+    function _processLockTokens(uint256[] calldata tokenIds) internal override(KIP37) virtual onlyMinter {
+        KIP37._processLockTokens(tokenIds);
     }
 
-    function _processUnLockTokens(address owner, uint256[] calldata tokenIds, uint256[] calldata amounts) internal override(KIP37) virtual onlyMinter {
-        KIP37._processUnLockTokens(owner, tokenIds, amounts);
-    }
-
-    function _lockTokens(address owner, uint256[] calldata tokenIds, uint256[] calldata amounts) internal override(KIP37) virtual onlyMinter {
-        KIP37._lockTokens(owner, tokenIds, amounts);
-    }
-
-    function _unLockTokens(address owner, uint256[] calldata tokenIds, uint256[] calldata amounts) internal override(KIP37) virtual onlyMinter {
-        KIP37._unLockTokens(owner, tokenIds, amounts);
+    function _processUnLockTokens(uint256[] calldata tokenIds) internal override(KIP37) virtual onlyMinter {
+        KIP37._processUnLockTokens(tokenIds);
     }
 
 }

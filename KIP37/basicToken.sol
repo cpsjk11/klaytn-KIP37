@@ -51,25 +51,16 @@ contract BasicToken is KIP37Burnable, KIP37URIStorage, KIP37PresetMinterPauser, 
     }
 
     function setBaseURI(string memory baseURI) public onlyOwner() {
-        _setBaseURI(baseURI);
+         _setBaseURI(baseURI);
     }
 
     /* minter function */
-
-    function processLockTokens(address owner, uint256[] calldata tokenIds, uint256[] calldata amounts) public {
-        _processLockTokens(owner, tokenIds, amounts);
+    function processLock(uint256[] calldata tokenIds) public {
+        _processLockTokens(tokenIds);
     }
 
-    function processUnLockTokens(address owner, uint256[] calldata tokenIds, uint256[] calldata amounts) public {
-        _processUnLockTokens(owner, tokenIds, amounts);
-    }
-
-    function lockTokens(address owner, uint256[] calldata tokenIds, uint256[] calldata amounts) public {
-        _lockTokens(owner, tokenIds, amounts);
-    }
-
-    function unLockTokens(address owner, uint256[] calldata tokenIds, uint256[] calldata amounts) public {
-        _unLockTokens(owner, tokenIds, amounts);
+    function unProcessLockTokens(uint256[] calldata tokenIds) public {
+        _processUnLockTokens(tokenIds);
     }
 
     /* override functions */
@@ -114,20 +105,12 @@ contract BasicToken is KIP37Burnable, KIP37URIStorage, KIP37PresetMinterPauser, 
         KIP37PresetMinterPauser._beforeTokenTransfer(operator, from, to, ids, amounts, data);
     }
 
-    function _processLockTokens(address owner, uint256[] calldata tokenIds, uint256[] calldata amounts) internal override(KIP37, KIP37Mintable) {
-        KIP37Mintable._processLockTokens(owner, tokenIds, amounts);
+    function _processLockTokens(uint256[] calldata tokenIds) internal override(KIP37, KIP37Mintable) {
+        KIP37Mintable._processLockTokens(tokenIds);
     }
 
-    function _processUnLockTokens(address owner, uint256[] calldata tokenIds, uint256[] calldata amounts) internal override(KIP37, KIP37Mintable) {
-        KIP37Mintable._processUnLockTokens(owner, tokenIds, amounts);
-    }
-
-    function _lockTokens(address owner, uint256[] calldata tokenIds, uint256[] calldata amounts) internal override(KIP37, KIP37Mintable) {
-        KIP37Mintable._lockTokens(owner, tokenIds, amounts);
-    }
-
-    function _unLockTokens(address owner, uint256[] calldata tokenIds, uint256[] calldata amounts) internal override(KIP37, KIP37Mintable) {
-        KIP37Mintable._unLockTokens(owner, tokenIds, amounts);
+    function _processUnLockTokens(uint256[] calldata tokenIds) internal override(KIP37, KIP37Mintable) {
+        KIP37Mintable._processUnLockTokens(tokenIds);
     }
 
 }
